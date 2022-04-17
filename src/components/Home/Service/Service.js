@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceItem from '../ServiceItem/ServiceItem';
-
+import './Service.css'
 const Service = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -11,7 +11,7 @@ const Service = () => {
 
     return (
         <div id='service' className='mt-5'>
-            <h2 className='text-center'>My <span className='text-primary'>Service</span></h2>
+            <h2 className='text-center'>MY <span className='text-primary'>SERVICES</span></h2>
             <div className='container'>
                 <div className='row g-3'>
 
