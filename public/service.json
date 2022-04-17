@@ -1,0 +1,30 @@
+[
+	{
+		"id":1,
+		"img":"https://i.ibb.co/x1X1Gbw/portrait-smiling-handsome-male-doctor-man.jpg",
+		"title":"Qualified Doctors",
+		"des":"A clinical degree is a professional or specialized degree granted for concentrates in fields related with medical.",
+		"price":120
+	},
+	{
+		"id":2,
+		"img":"https://i.ibb.co/Zcwc180/istockphoto-1156991077-612x612.jpg",
+		"title":"Kidney Disease",
+		"des":"Kidney disease affects huge adults people. It occurs when your kidneys become damaged and can't perform their function.",
+		"price":130
+	},
+	{
+		"id":3,
+		"img":"https://i.ibb.co/Jjv5MW9/blood-test-sample-tube-1296-728-header.webp",
+		"title":"Blood Test",
+		"des":"Blood tests help doctors check for certain diseases, conditions and your organs and show how well treatments are working.",
+		"price":140
+	},
+	{
+		"id":4,
+		"img":"https://i.ibb.co/TPDkhZh/360-F-212104872-2-K5h-CCk6b-Z1cl-KUe-Zkt-UCRAc-J40u-Hg-Z9.jpg",
+		"title":"24/7 Service",
+		"des":"The Specialized and Experienced Doctors in our Tonic Doctor Panel are consistently there and prepared to exhort every day.",
+		"price":150
+	}
+]
