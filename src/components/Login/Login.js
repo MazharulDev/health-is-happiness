@@ -31,9 +31,7 @@ const Login = () => {
         signInWithGoogle();
     }
   
-    if(userWithEmail||userWithGoogle){
-        navigate('/')
-    }
+
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
