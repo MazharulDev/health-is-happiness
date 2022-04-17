@@ -18,7 +18,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img className='w-100' src={doctor2} alt="" />
                     <Carousel.Caption>
-                        <h2>We are committed for your health</h2>
+                        <h2>High Innovative Professional Doctor</h2>
                         <h1>Medical center in london</h1>
                         <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
@@ -26,7 +26,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img className='w-100' src={doctor3} alt="" />
                     <Carousel.Caption>
-                        <h2>We are committed for your health</h2>
+                        <h2>We Provide Best Medical Service</h2>
                         <h1>Medical center in london</h1>
                         <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>

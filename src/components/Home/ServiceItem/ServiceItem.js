@@ -14,9 +14,9 @@ const ServiceItem = () => {
                         <BsFillPersonCheckFill className='fs-1 border p-2 mb-2'></BsFillPersonCheckFill>
                         <h3>Qualified Doctors</h3>
                         <p>A clinical degree is a professional or specialized degree granted for concentrates in fields related with medical.</p>
-                        <div className='d-flex align-items-center jus'>
+                        <div className='d-flex align-items-center text-primary '>
                             <h6>Read more</h6>
-                            <RiArrowDropRightLine></RiArrowDropRightLine>
+                            <RiArrowDropRightLine className='mb-1'></RiArrowDropRightLine>
                         </div>
                     </div>
                 </div>
@@ -25,9 +25,9 @@ const ServiceItem = () => {
                         <GiKidneys className='fs-1 border p-2 mb-2'></GiKidneys>
                         <h3>Kidney Disease</h3>
                         <p>Kidney disease affects huge adults people. It occurs when your kidneys become damaged and can't perform their function.</p>
-                        <div className='d-flex align-items-center jus'>
+                        <div className='d-flex align-items-center text-primary'>
                             <h6>Read more</h6>
-                            <RiArrowDropRightLine></RiArrowDropRightLine>
+                            <RiArrowDropRightLine className='mb-1'></RiArrowDropRightLine>
                         </div>
                     </div>
                 </div>
@@ -36,9 +36,9 @@ const ServiceItem = () => {
                         <BiDonateBlood className='fs-1 border p-2 mb-2'></BiDonateBlood>
                         <h3>Blood Test</h3>
                         <p>Blood tests help doctors check for certain diseases, conditions and your organs and show how well treatments are working.</p>
-                        <div className='d-flex align-items-center jus'>
+                        <div className='d-flex align-items-center text-primary'>
                             <h6>Read more</h6>
-                            <RiArrowDropRightLine></RiArrowDropRightLine>
+                            <RiArrowDropRightLine className='mb-1'></RiArrowDropRightLine>
                         </div>
                     </div>
                 </div>
@@ -49,9 +49,9 @@ const ServiceItem = () => {
                         <p>The Specialized and Experienced Doctors in our Tonic Doctor Panel are consistently there and prepared to exhort every day.
 
                         </p>
-                        <div className='d-flex align-items-center jus'>
+                        <div className='d-flex align-items-center text-primary'>
                             <h6>Read more</h6>
-                            <RiArrowDropRightLine></RiArrowDropRightLine>
+                            <RiArrowDropRightLine className='mb-1'></RiArrowDropRightLine>
                         </div>
                     </div>
                 </div>
