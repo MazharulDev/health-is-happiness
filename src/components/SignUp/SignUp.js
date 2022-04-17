@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const SignUp = () => {
+    const navigate=useNavigate();
+    const [agree,setAgree]=useState(false)
     const [
         createUserWithEmailAndPassword,
         userWithEmail,
         loadingWithEmail,
         errorWithpassword,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
     const [signInWithGoogle, userWithGoogle, loadingWithGoogle, errorWithGoogle] = useSignInWithGoogle(auth);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -29,7 +32,9 @@ const SignUp = () => {
     const handleConfirmPasswordChange = e => {
         setConfirmPassword(e.target.value)
     }
-
+    if(useSignInWithGoogle||userWithEmail){
+        navigate('/');
+    }
     const handleSubmit = e => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -71,11 +76,10 @@ const SignUp = () => {
                     <Form.Control onChange={handleConfirmPasswordChange} type="password" placeholder="Confirm Password" required />
                 </Form.Group>
                 <p className='text-danger'>{error}</p>
-                <Form.Group className="mb-3">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button className='w-100' variant="primary" type="submit">
-                    Submit
+                <input className='me-2 mb-3' onClick={()=>setAgree(!agree)} type="checkbox" id='terms' />
+                <label className={agree?'text-primary':'text-danger'} htmlFor="terms">Accept Health is Happiness Terms and conditions</label>
+                <Button disabled={!agree} className='w-100' variant="primary" type="submit">
+                    Sign Up
                 </Button>
                 <Button onClick={handleGoogleSignIn} className='mt-3 w-100 btn btn-light border'>Sign in with google</Button>
             </Form>

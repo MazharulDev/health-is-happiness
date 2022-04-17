@@ -11,7 +11,7 @@ const ServiceItem = ({ service }) => {
                 <h5>${price}</h5>
                 <Link to={`/checkout/${id}`}>
                     <button className='d-flex align-items-center justify-content-center w-100 outline-none btn btn-primary border px-3'>
-                        Hire
+                    Treatment
                     </button>
                 </Link>
             </div>

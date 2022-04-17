@@ -10,24 +10,24 @@ const Banner = () => {
                 <Carousel.Item>
                     <img className='w-100' src={doctor1} alt="" />
                     <Carousel.Caption>
-                        <h2>We are committed for your health</h2>
-                        <h1 className=''>Medical center in london</h1>
+                        <h2>My committed for your health</h2>
+                        <h1 className=''>Health is Happiness center in Bangladesh</h1>
                         <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img className='w-100' src={doctor2} alt="" />
                     <Carousel.Caption>
-                        <h2>High Innovative Professional Doctor</h2>
-                        <h1>Medical center in london</h1>
+                        <h2>High Innovative Professional Degree</h2>
+                        <h1>Health is Happiness center in Bangladesh</h1>
                         <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img className='w-100' src={doctor3} alt="" />
                     <Carousel.Caption>
-                        <h2>We Provide Best Medical Service</h2>
-                        <h1>Medical center in london</h1>
+                        <h2>I'm Provide Best Medical Service</h2>
+                        <h1>Health is Happiness center in Bangladesh</h1>
                         <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
                 </Carousel.Item>

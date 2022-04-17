@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
     const navigate=useNavigate();
     const [signInWithGoogle, userWithGoogle, loadingWithGoogle, errorWithGoogle] = useSignInWithGoogle(auth);
@@ -18,6 +19,7 @@ const Login = () => {
     const handleEmailChange=e=>{
         setEmail(e.target.value);
     }
+
     const handlePasswordChange=e=>{
         setPassword(e.target.value);
     }
@@ -28,6 +30,7 @@ const Login = () => {
     const handleGoogleSignIn=()=>{
         signInWithGoogle();
     }
+  
     if(userWithEmail||userWithGoogle){
         navigate('/')
     }
@@ -50,9 +53,7 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+                
                 <Button className='w-100' variant="primary" type="submit">
                     Submit
                 </Button>
