@@ -1,37 +1,25 @@
 import React from 'react';
+import './Banner.css'
 import { Carousel } from 'react-bootstrap';
 import doctor1 from '../../../images/doctor1.jpg'
 import doctor2 from '../../../images/doctor2.jpg'
 import doctor3 from '../../../images/doctor3.jpg'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
-        <div className='vh-lg-100'>
-            <Carousel variant="dark">
-                <Carousel.Item>
-                    <img className='w-100' src={doctor1} alt="" />
-                    <Carousel.Caption>
-                        <h2>My committed for your health</h2>
-                        <h1 className=''>Health is Happiness center in Bangladesh</h1>
-                        <button className='btn btn-primary'>Show Details</button>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img className='w-100' src={doctor2} alt="" />
-                    <Carousel.Caption>
-                        <h2>High Innovative Professional Degree</h2>
-                        <h1>Health is Happiness center in Bangladesh</h1>
-                        <button className='btn btn-primary'>Show Details</button>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img className='w-100' src={doctor3} alt="" />
-                    <Carousel.Caption>
-                        <h2>I'm Provide Best Medical Service</h2>
-                        <h1>Health is Happiness center in Bangladesh</h1>
-                        <button className='btn btn-primary'>Show Details</button>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+        <div className='banner-area d-flex align-items-center'>
+            <div className="container">
+                <div className="row">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+                        <h1>We Care For Your Health 
+                            Every Moment </h1>
+                        <p>Also you dry creeping beast multiply fourth abundantly our itsel signs bring our. Won form living. Whose dry you seasons divide given gathering great in whose you'll greater let livein form beast sinthete
+                            better together these place absolute right.</p>
+                        <button href="" className="main_btn me-3">Make an Appointment</button>
+                        <button href="" className="main_btn_light">View Department</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
