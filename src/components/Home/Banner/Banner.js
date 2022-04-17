@@ -5,27 +5,30 @@ import doctor2 from '../../../images/doctor2.jpg'
 import doctor3 from '../../../images/doctor3.jpg'
 const Banner = () => {
     return (
-        <div className='w-100'>
+        <div className='vh-lg-100'>
             <Carousel variant="dark">
                 <Carousel.Item>
                     <img className='w-100' src={doctor1} alt="" />
                     <Carousel.Caption>
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h2>We are committed for your health</h2>
+                        <h1 className=''>Medical center in london</h1>
+                        <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img className='w-100' src={doctor2} alt="" />
                     <Carousel.Caption>
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h2>We are committed for your health</h2>
+                        <h1>Medical center in london</h1>
+                        <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img className='w-100' src={doctor3} alt="" />
                     <Carousel.Caption>
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h2>We are committed for your health</h2>
+                        <h1>Medical center in london</h1>
+                        <button className='btn btn-primary'>Show Details</button>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
