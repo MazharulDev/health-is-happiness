@@ -9,7 +9,7 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" variant="light">
                 <Container>
                     <Link className='text-decoration-none' to='/'>
-                    <Navbar.Brand href="#home">Health is Happiness</Navbar.Brand>
+                        <Navbar.Brand href="#home">Health is Happiness</Navbar.Brand>
                     </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -17,13 +17,17 @@ const Header = () => {
                             <Nav.Link href="#features">Features</Nav.Link>
                             <Nav.Link href="#service">Service</Nav.Link>
                             <Nav.Link href="#pricing">Team</Nav.Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
-                            <Nav.Link href="#pricing">About</Nav.Link>
+                            <Link className='text-decoration-none' to='/blog'>
+                                <Nav.Link href="#blog">Blog</Nav.Link>
+                            </Link>
+                            <Link className='text-decoration-none' to='/about'>
+                                <Nav.Link href="#about">About</Nav.Link>
+                            </Link>
 
                         </Nav>
                         <Nav>
                             <Link className='text-decoration-none' to='/signup'>
-                            <Nav.Link href="#signup">Sign Up</Nav.Link>
+                                <Nav.Link href="#signup">Sign Up</Nav.Link>
                             </Link>
                             <Link className='text-decoration-none' to='/login'>
                                 <Nav.Link eventKey={2} href="#login">
