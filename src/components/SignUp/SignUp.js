@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
-
+import {FcGoogle} from 'react-icons/fc'
 const SignUp = () => {
     const [agree,setAgree]=useState(false)
     const [
@@ -81,7 +81,7 @@ const SignUp = () => {
                     Sign Up
                 </Button>
                 <p className='mt-3'>Have an account?<Link className='text-decoration-none ms-2' to='/login'>Login</Link></p>
-                <Button onClick={handleGoogleSignIn} className='mt-3 w-100 btn btn-light border'>Sign in with google</Button>
+                <Button onClick={handleGoogleSignIn} className='mt-3 w-100 btn btn-light border'><FcGoogle className='me-2 mb-1'></FcGoogle>Sign in with google</Button>
             </Form>
         </div>
     );
