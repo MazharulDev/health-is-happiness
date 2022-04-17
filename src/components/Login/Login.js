@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -55,6 +55,9 @@ const Login = () => {
                 <Button className='w-100' variant="primary" type="submit">
                     Submit
                 </Button>
+                <Link to='/forgotpassword' className='text-decoration-none'>Forgot your password?</Link>
+                <p className='mt-3'>Don't have an account?<Link className='text-decoration-none ms-2' to='/signup'>Create an Account</Link></p>
+                
                 <Button onClick={handleGoogleSignIn} className='mt-3 w-100 btn btn-light border'>Sign in with google</Button>
             </Form>
             

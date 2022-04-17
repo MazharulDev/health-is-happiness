@@ -9,6 +9,7 @@ import About from './components/About/About';
 import Blog from './components/Blog/Blog';
 import CheckOut from './components/CheckOut/CheckOut';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <CheckOut />
           </RequireAuth>
         }></Route>
+        <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
       </Routes>
     </div>
   );

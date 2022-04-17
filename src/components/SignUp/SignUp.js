@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const SignUp = () => {
-    const navigate=useNavigate();
     const [agree,setAgree]=useState(false)
     const [
         createUserWithEmailAndPassword,
@@ -32,9 +31,9 @@ const SignUp = () => {
     const handleConfirmPasswordChange = e => {
         setConfirmPassword(e.target.value)
     }
-    if(useSignInWithGoogle||userWithEmail){
-        navigate('/');
-    }
+    // if(useSignInWithGoogle||userWithEmail){
+    //     navigate('/');
+    // }
     const handleSubmit = e => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -52,7 +51,7 @@ const SignUp = () => {
         signInWithGoogle();
     }
     return (
-        <div>
+        <div className='mb-5'>
             <h2 className='text-center'>Sign Up</h2>
             <Form onSubmit={handleSubmit} className='w-50 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -81,6 +80,7 @@ const SignUp = () => {
                 <Button disabled={!agree} className='w-100' variant="primary" type="submit">
                     Sign Up
                 </Button>
+                <p className='mt-3'>Have an account?<Link className='text-decoration-none ms-2' to='/login'>Login</Link></p>
                 <Button onClick={handleGoogleSignIn} className='mt-3 w-100 btn btn-light border'>Sign in with google</Button>
             </Form>
         </div>

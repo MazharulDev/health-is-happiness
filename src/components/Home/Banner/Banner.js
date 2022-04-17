@@ -1,10 +1,5 @@
 import React from 'react';
 import './Banner.css'
-import { Carousel } from 'react-bootstrap';
-import doctor1 from '../../../images/doctor1.jpg'
-import doctor2 from '../../../images/doctor2.jpg'
-import doctor3 from '../../../images/doctor3.jpg'
-import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div className='banner-area d-flex align-items-center'>
