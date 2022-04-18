@@ -11,6 +11,7 @@ import CheckOut from './components/CheckOut/CheckOut';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import NotFound from './components/NotFound/NotFound';
+import Service from './components/Home/Service/Service';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
+        <Route path='/service' element={<Service />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </div>
