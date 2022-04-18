@@ -3,20 +3,20 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 const SignUp = () => {
     const location = useLocation();
     const [updateProfile, updating] = useUpdateProfile(auth);
-    const navigate=useNavigate();
-    const [agree,setAgree]=useState(false)
+    const navigate = useNavigate();
+    const [agree, setAgree] = useState(false)
     const [
         createUserWithEmailAndPassword,
         userWithEmail,
         loadingWithEmail,
         errorWithPassword,
-    ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [signInWithGoogle, userWithGoogle, loadingWithGoogle, errorWithGoogle] = useSignInWithGoogle(auth);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -37,39 +37,39 @@ const SignUp = () => {
         setConfirmPassword(e.target.value)
     }
 
-    if(errorWithGoogle){
+    if (errorWithGoogle) {
         toast(errorWithGoogle?.message);
     }
-    if(errorWithPassword){
+    if (errorWithPassword) {
         toast(errorWithPassword?.message);
     }
-    if(userWithEmail){
+    if (userWithEmail) {
         toast('Registration Successfully')
     }
-    const handleSubmit =async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
             setError('Two password did not match')
             return;
         }
-        if(password<5){
+        if (password < 5) {
             setError('Password must 6 character');
             return;
         }
         await createUserWithEmailAndPassword(email, password)
-        await updateProfile({ displayName:name });
-        
-        
+        await updateProfile({ displayName: name });
     }
-    
+
     const handleGoogleSignIn = () => {
         signInWithGoogle();
     }
     let from = location.state?.from?.pathname || '/';
-    if (userWithEmail||userWithGoogle) {
-        navigate(from, { replace: true });
+    if (userWithEmail || userWithGoogle) {
+        setTimeout(() => {
+            navigate(from, { replace: true });
+        }, 2000);
     }
-    if(loadingWithEmail || loadingWithGoogle|| updating){
+    if (loadingWithEmail || loadingWithGoogle || updating) {
         return <Loading></Loading>
     }
     return (
@@ -96,10 +96,10 @@ const SignUp = () => {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control onChange={handleConfirmPasswordChange} type="password" placeholder="Confirm Password" required />
                 </Form.Group>
-                
+
                 <p className='text-danger'>{error}</p>
-                <input className='me-2 mb-3' onClick={()=>setAgree(!agree)} type="checkbox" id='terms' />
-                <label className={agree?'text-primary':'text-danger'} htmlFor="terms">Accept Health is Happiness Terms and conditions</label>
+                <input className='me-2 mb-3' onClick={() => setAgree(!agree)} type="checkbox" id='terms' />
+                <label className={agree ? 'text-primary' : 'text-danger'} htmlFor="terms">Accept Health is Happiness Terms and conditions</label>
                 <Button disabled={!agree} className='w-100' variant="primary" type="submit">
                     Sign Up
                 </Button>

@@ -43,7 +43,9 @@ const Login = () => {
     }
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
-        navigate(from, { replace: true });
+        setTimeout(() => {
+            navigate(from, { replace: true });
+        }, 2000);
     }
 
 
