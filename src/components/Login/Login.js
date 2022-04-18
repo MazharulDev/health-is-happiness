@@ -4,6 +4,8 @@ import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc'
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
     const navigate=useNavigate();
@@ -26,11 +28,21 @@ const Login = () => {
     const handleSubmit=e=>{
         e.preventDefault();
         signInWithEmailAndPassword(email,password);
+        toast('Login successfully')
+    }
+    if(userWithGoogle){
+        toast('Login successfully')
     }
     const handleGoogleSignIn=()=>{
         signInWithGoogle();
+        
     }
-  
+    if(errorWithGoogle){
+        toast(errorWithGoogle?.message) 
+    }
+    if(errorWithEmail){
+        toast(errorWithEmail?.message)
+    }
 
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
@@ -51,7 +63,6 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
                 </Form.Group>
-                
                 <Button className='w-100' variant="primary" type="submit">
                     Login
                 </Button>

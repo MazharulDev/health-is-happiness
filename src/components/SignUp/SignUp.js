@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import {FcGoogle} from 'react-icons/fc'
+import { toast } from 'react-toastify';
 const SignUp = () => {
+    const navigate=useNavigate();
     const [agree,setAgree]=useState(false)
     const [
         createUserWithEmailAndPassword,
         userWithEmail,
         loadingWithEmail,
-        errorWithpassword,
+        errorWithPassword,
     ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
     const [signInWithGoogle, userWithGoogle, loadingWithGoogle, errorWithGoogle] = useSignInWithGoogle(auth);
     const [name, setName] = useState('');
@@ -31,9 +33,9 @@ const SignUp = () => {
     const handleConfirmPasswordChange = e => {
         setConfirmPassword(e.target.value)
     }
-    // if(useSignInWithGoogle||userWithEmail){
-    //     navigate('/');
-    // }
+    if(errorWithGoogle){
+        toast(errorWithGoogle?.message);
+    }
     const handleSubmit = e => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -45,7 +47,14 @@ const SignUp = () => {
             return;
         }
 
+
         createUserWithEmailAndPassword(email, password)
+        toast('Registration Successfully')
+    }
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
+    if (userWithEmail||userWithGoogle) {
+        navigate(from, { replace: true });
     }
     const handleGoogleSignIn = () => {
         signInWithGoogle();
@@ -74,6 +83,7 @@ const SignUp = () => {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control onChange={handleConfirmPasswordChange} type="password" placeholder="Confirm Password" required />
                 </Form.Group>
+                
                 <p className='text-danger'>{error}</p>
                 <input className='me-2 mb-3' onClick={()=>setAgree(!agree)} type="checkbox" id='terms' />
                 <label className={agree?'text-primary':'text-danger'} htmlFor="terms">Accept Health is Happiness Terms and conditions</label>

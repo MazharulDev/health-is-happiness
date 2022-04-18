@@ -6,11 +6,17 @@ import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Header.css'
 import logo from '../../../images/logo.png'
+import { toast } from 'react-toastify';
+import Loading from '../../Loading/Loading';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const handleSignOut = () => {
         signOut(auth)
+        toast('Sign Out successfully');
+    }
+    if(loading){
+        return <Loading></Loading>
     }
     return (
         <div className='p-2'>
