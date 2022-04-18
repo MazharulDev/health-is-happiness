@@ -53,7 +53,7 @@ const Login = () => {
                 </Form.Group>
                 
                 <Button className='w-100' variant="primary" type="submit">
-                    Submit
+                    Login
                 </Button>
                 <Link to='/forgotpassword' className='text-decoration-none'>Forgot your password?</Link>
                 <p className='mt-3'>Don't have an account?<Link className='text-decoration-none ms-2' to='/signup'>Create an Account</Link></p>
