@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import {FcGoogle} from 'react-icons/fc'
 import { toast } from 'react-toastify';
+import Loading from '../Loading/Loading';
 const SignUp = () => {
+    const location = useLocation();
+    const [updateProfile, updating] = useUpdateProfile(auth);
     const navigate=useNavigate();
     const [agree,setAgree]=useState(false)
     const [
@@ -33,10 +36,19 @@ const SignUp = () => {
     const handleConfirmPasswordChange = e => {
         setConfirmPassword(e.target.value)
     }
+    if(loadingWithEmail || loadingWithGoogle|| updating){
+        return <Loading></Loading>
+    }
     if(errorWithGoogle){
         toast(errorWithGoogle?.message);
     }
-    const handleSubmit = e => {
+    if(errorWithPassword){
+        toast(errorWithPassword?.message);
+    }
+    if(userWithEmail){
+        toast('Registration Successfully')
+    }
+    const handleSubmit =async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
             setError('Two password did not match')
@@ -46,12 +58,12 @@ const SignUp = () => {
             setError('Password must 6 character');
             return;
         }
-
-
-        createUserWithEmailAndPassword(email, password)
-        toast('Registration Successfully')
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName:name });
+        
+        
     }
-    const location = useLocation();
+    
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
         navigate(from, { replace: true });
@@ -64,8 +76,8 @@ const SignUp = () => {
             <h2 className='text-center'>Sign Up</h2>
             <Form onSubmit={handleSubmit} className='w-50 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control onChange={handleNameChange} type="name" placeholder="Enter Name" required />
+                    <Form.Label>Full Name</Form.Label>
+                    <Form.Control onChange={handleNameChange} type="name" placeholder="Enter Full Name" required />
 
                 </Form.Group>
 

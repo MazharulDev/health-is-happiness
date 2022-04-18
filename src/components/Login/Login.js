@@ -5,9 +5,11 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc'
 import { toast } from 'react-toastify';
+import Loading from '../Loading/Loading';
 
 
 const Login = () => {
+    const location = useLocation();
     const navigate=useNavigate();
     const [signInWithGoogle, userWithGoogle, loadingWithGoogle, errorWithGoogle] = useSignInWithGoogle(auth);
     const [
@@ -30,6 +32,9 @@ const Login = () => {
         signInWithEmailAndPassword(email,password);
         toast('Login successfully')
     }
+    if(loadingWithEmail||loadingWithGoogle){
+        return <Loading></Loading>
+    }
     if(userWithGoogle){
         toast('Login successfully')
     }
@@ -44,7 +49,7 @@ const Login = () => {
         toast(errorWithEmail?.message)
     }
 
-    const location = useLocation();
+    
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
         navigate(from, { replace: true });
