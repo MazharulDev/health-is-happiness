@@ -19,7 +19,8 @@ const Blog = () => {
                     <Accordion.Body>
                     Ans: I'm using firebase beacuse Userbase can be collected and stored with Firebase. Later that user can be easily identified again. <br /> <br />
 
-There are other ways besides password-based authentication as Multi-factor authentication, Certificate-based authentication,Cookie-Based authentication,Token-Based authentication etc.
+There are other ways besides password-based authentication as Multi-factor authentication,Biometric Authentication
+, Certificate-based authentication,Cookie-Based authentication,Token-Based authentication etc.
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">

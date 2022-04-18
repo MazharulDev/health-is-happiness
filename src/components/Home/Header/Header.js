@@ -7,14 +7,20 @@ import './Header.css'
 import logo from '../../../images/logo.png'
 import { toast } from 'react-toastify';
 import Loading from '../../Loading/Loading';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
     const [user, loading] = useAuthState(auth);
     
-    let userName;
-    if(user){
-        userName=<span>{user?.displayName}</span>
-    }
+    const [userName,setUserName]=useState('');
+    useEffect(()=>{
+        if(user){
+            setUserName(user?.displayName);
+        }
+    },[user])
+    // if(user){
+    //     setUserName(user?.displayName)
+    // }
     
     const handleSignOut = () => {
         signOut(auth)

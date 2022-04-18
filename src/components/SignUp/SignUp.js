@@ -64,12 +64,12 @@ const SignUp = () => {
         
     }
     
+    const handleGoogleSignIn = () => {
+        signInWithGoogle();
+    }
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
         navigate(from, { replace: true });
-    }
-    const handleGoogleSignIn = () => {
-        signInWithGoogle();
     }
     return (
         <div className='mb-5'>

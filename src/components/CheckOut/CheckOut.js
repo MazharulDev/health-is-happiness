@@ -22,6 +22,8 @@ const CheckOut = () => {
     }
     const handleSubmit=e=>{
         e.preventDefault();
+        setNumber('');
+        setAge('')
         toast('Save Your Information')
     }
     return (
@@ -35,11 +37,11 @@ const CheckOut = () => {
                 </Form.Group>
                 <Form.Group className='mb-3'>
                     <Form.Label>Phone Number</Form.Label>
-                    <Form.Control onChange={handleNumberChange} type="tel" placeholder='Enter Your Phone Number'/>
+                    <Form.Control onChange={handleNumberChange} value={number} type="tel" placeholder='Enter Your Phone Number'/>
                 </Form.Group>
                 <Form.Group className='mb-3'>
                     <Form.Label>Age</Form.Label>
-                    <Form.Control onChange={handleAgeChange} type="number" placeholder='Enter Your Age'/>
+                    <Form.Control onChange={handleAgeChange} value={age} type="number" placeholder='Enter Your Age'/>
                 </Form.Group>
                 <Button className='w-100' variant="primary" type="submit">
                     Check Out
