@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -32,9 +32,8 @@ const Login = () => {
         signInWithEmailAndPassword(email,password);
         toast('Login successfully')
     }
-    if(loadingWithEmail||loadingWithGoogle){
-        return <Loading></Loading>
-    }
+
+
     if(userWithGoogle){
         toast('Login successfully')
     }
@@ -42,17 +41,26 @@ const Login = () => {
         signInWithGoogle();
         
     }
-    if(errorWithGoogle){
-        toast(errorWithGoogle?.message) 
-    }
-    if(errorWithEmail){
-        toast(errorWithEmail?.message)
-    }
-
-    
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
         navigate(from, { replace: true });
+    }
+
+
+    useEffect(()=>{
+        if(errorWithGoogle){
+            toast(errorWithGoogle?.message) 
+        }
+    },[errorWithGoogle])
+
+    useEffect(()=>{
+        if(errorWithEmail){
+            toast(errorWithEmail?.message)
+        }
+    },[errorWithEmail])
+
+    if(loadingWithEmail||loadingWithGoogle){
+        return <Loading></Loading>
     }
     return (
         <div>

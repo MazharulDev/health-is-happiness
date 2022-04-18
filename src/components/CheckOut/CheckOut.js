@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
 const CheckOut = () => {
+    const navigate=useNavigate();
     const [number,setNumber]=useState('');
     const [age,setAge]=useState('');
     const [user, loading] = useAuthState(auth);
@@ -25,6 +26,7 @@ const CheckOut = () => {
         setNumber('');
         setAge('')
         toast('Save Your Information')
+        navigate('/')
     }
     return (
         <div>

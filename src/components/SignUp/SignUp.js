@@ -36,9 +36,7 @@ const SignUp = () => {
     const handleConfirmPasswordChange = e => {
         setConfirmPassword(e.target.value)
     }
-    if(loadingWithEmail || loadingWithGoogle|| updating){
-        return <Loading></Loading>
-    }
+
     if(errorWithGoogle){
         toast(errorWithGoogle?.message);
     }
@@ -70,6 +68,9 @@ const SignUp = () => {
     let from = location.state?.from?.pathname || '/';
     if (userWithEmail||userWithGoogle) {
         navigate(from, { replace: true });
+    }
+    if(loadingWithEmail || loadingWithGoogle|| updating){
+        return <Loading></Loading>
     }
     return (
         <div className='mb-5'>

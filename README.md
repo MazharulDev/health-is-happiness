@@ -1,4 +1,4 @@
-#Health is Happiness
+# Health is Happiness
 
 Click browse my Website [Health is Happiness](https://assignment-nine.netlify.app/).
 
@@ -15,7 +15,7 @@ Click browse my Website [Health is Happiness](https://assignment-nine.netlify.ap
 >> - Login Sign out notification showed fancy toast 
 >> - Also health service provided 
 
->##External frameworks libraries used in this project
+## External frameworks libraries used in this project
 >> - React router dom
 >> - React firebase
 >> - React bootstrap
